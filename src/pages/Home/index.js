@@ -6,7 +6,6 @@ import Produtos from '../../components/Produtos';
 import carrosselImage from '../../assets/imgCarrossel.jpg';
 import Avaliado from './Avaliado';
 import { Container, List } from './styles';
-
 import data from '../../data/data1';
 function Home({ navigation }) {
   const profile = useSelector((state) => state.user.profile);
@@ -17,7 +16,7 @@ function Home({ navigation }) {
       return setlista(results);
     });
   }, []);
-
+  console.log(lista);
   return (
     <Container>
       <Produtos onPress={() => navigation.navigate('Alimentos')} />
@@ -28,7 +27,7 @@ function Home({ navigation }) {
         renderItem={(item) => (
           <Avaliado
             item={item}
-            onPress={() => navigation.navigate('PetShop')}
+            onPress={() => navigation.navigate('PetShopAcessorios', { id: item.item.id })}
           />
         )}
       />

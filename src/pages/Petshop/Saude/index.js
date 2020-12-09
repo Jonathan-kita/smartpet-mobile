@@ -16,7 +16,7 @@ function Saude() {
 }
 
 Saude.navigationOptions = {
-  title: "Alimentos",
+  title: "Saúde",
 };
 
 export default Saude;

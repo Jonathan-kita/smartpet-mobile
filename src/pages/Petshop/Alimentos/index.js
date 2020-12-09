@@ -3,15 +3,15 @@ import ItensList from "../ItensList";
 import { Container, List } from "./styles";
 import { itens } from "../../../data/data";
 
-function Alimentos() {
+function Alimentos({ navigation }) {
   return (
-    <Container>
+    < Container >
       <List
         data={itens}
         keyExtractor={(item) => String(item.id)}
         renderItem={(item) => <ItensList item={item} />}
       />
-    </Container>
+    </Container >
   );
 }
 

@@ -1,7 +1,8 @@
 import React from 'react';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { MaterialCommunityIcons } from 'react-native-vector-icons';
-
+import { moedaMask } from '../../../Mascara/mask';
+import api from '../../../Services/Api';
 import {
   Container,
   Left,
@@ -20,16 +21,16 @@ function Avaliado({ item, ...rest }) {
     <Container {...rest}>
       <Left>
         <SymbleEnterprise
-          color={item.item.color}
+          color='#f76abc'
           source={{
-            uri: item.item.url,
+            uri: "http://192.168.15.11:3333/uploads/product/save/" + item.item.foto_principal,
           }}
         />
         <Info>
-          <Name>{item.item.name}</Name>
+          <Name>{item.item.nome_prod}</Name>
           <Adicionais>
             <RamoAtuacao>
-              <TempoDeEntrega>{item.item.categoria + ' '}</TempoDeEntrega>
+              <TempoDeEntrega>{item.item.especie + ' '}</TempoDeEntrega>
               <MaterialCommunityIcons
                 name="circle"
                 size={5}
@@ -38,9 +39,9 @@ function Avaliado({ item, ...rest }) {
                   marginTop: 3,
                 }}
               />
-              <TempoDeEntrega>{' ' + item.item.porte}</TempoDeEntrega>
+              <TempoDeEntrega>{' ' + item.item.raca}</TempoDeEntrega>
             </RamoAtuacao>
-            <ValorFrete>Preço: {' ' + item.item.valor}</ValorFrete>
+            <ValorFrete>Preço: {' R$ ' + moedaMask("'" + item.item.valor + "'")}</ValorFrete>
           </Adicionais>
         </Info>
       </Left>
